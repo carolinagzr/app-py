@@ -1,5 +1,5 @@
-ARG from_image=python:3.10.1-alpine3.15
-FROM ${from_image}
+ARG REPO=687995572327.dkr.ecr.us-west-2.amazonaws.com
+FROM ${REPO}/python:3.7
 
 # Force the binary layer of the stdout and stderr streams
 # to be unbuffered
