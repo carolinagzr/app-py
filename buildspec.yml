@@ -10,17 +10,17 @@ env:
 phases:
   install:
     commands:
-      - echo Install started on `date`
+      - echo Install started on 'date'
       - yum -y install python3.7
       - pip-3.7 install -r requirements.txt
   build:
     commands:
       - echo Build started on `date`
-      - python3 -m pylint *.py
+      - python3.7 -m pylint *.py
       - nosetests --cover-html --with-coverage --cover-erase --cover-package=.
   post_build:
     commands:
-      - echo Build completed on `date`
+      - echo Build completed on 'date'
 
 artifacts:
   files:
