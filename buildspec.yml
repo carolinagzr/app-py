@@ -17,6 +17,12 @@ phases:
     commands:
       - echo Build started on `date`
       - python -m py_compile *.py
+      - echo building and tagging image
+      - aws ecr get-login-password --region us-west-2 | docker login --username AWS --password-stdin 687995572327.dkr.ecr.us-west-2.amazonaws.com
+      - docker build -t python-app .
+      - docker tag python-app:latest 687995572327.dkr.ecr.us-west-2.amazonaws.com/python-app:latest
   post_build:
     commands:
       - echo Build completed on 'date'
+      - echo pushing to ECR
+      - docker push 687995572327.dkr.ecr.us-west-2.amazonaws.com/python-app:latest
