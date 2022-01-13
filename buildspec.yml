@@ -11,7 +11,7 @@ phases:
   install:
     commands:
       - echo Install started on `date`
-      - yum -y install python36
+      - yum -y install python3.6
       - pip-3.6 install -r requirements.txt
   build:
     commands:
